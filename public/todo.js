@@ -50,3 +50,13 @@ async function postTask(){
     }
     return node;
 };
+
+function submitTask(){
+    postTask()
+    .then (function(){
+        console.log("ya did it, babe")
+    })
+    .catch (function(){
+        console.log("error will robinson")
+    })
+} 

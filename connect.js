@@ -24,9 +24,7 @@ app.use(
   express.static(
     //this takes care of relative paths 
     path.join(__dirname, 'public')));
-  app.use(bodyParser.json());
-  app.use(bodyParser.urlencoded({​​​​​extended:false}​​​​​));
-
+    
 mongoose.connect(mongoDB, {useNewUrlParser: true, useUnifiedTopology: true}, (err, client) => {
     if(err) return console.error(err);
     //this command helps the user know if they are connected
@@ -49,15 +47,16 @@ app.get('/tasks', function (request, response){
       if (err) return console.error(err);
       response.send(tasks)
   })
-})
+});
 
 app.post('/postTask', (request, response) => {
   let node = new Task(request.body);
   node.save(function(error,node){
-  if(error){
+    if(error){
   response.sendStatus(500);
-  return console.error(error)
+    return console.error(error)
   };
+  response.sendStatus(200);
   return node;
   })
   });
