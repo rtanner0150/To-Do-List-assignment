@@ -24,6 +24,8 @@ app.use(
   express.static(
     //this takes care of relative paths 
     path.join(__dirname, 'public')));
+    app.use(bodyParser.json());
+    app.use(bodyParser.urlencoded({extended:false}));
     
 mongoose.connect(mongoDB, {useNewUrlParser: true, useUnifiedTopology: true}, (err, client) => {
     if(err) return console.error(err);
