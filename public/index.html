@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en-us">
+
+<head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" href="styles.css">
+<title>Dopa-Menu</title>
+</head>
+
+<body class = "container">
+    <h1> make yourself happy </h1>
+<img src="boredCat.jpeg" alt="bored kitty">
+<br>
+<div class="col-md-offset-1 col-md-11">
+    <div class="createTask">
+        <hr>
+            <input id="taskName" type="text" placeholder="Task">
+            <input id="assignee" type="text" placeholder="Assignee">
+            <select id="taskPriority">
+            <option value="high">High</option>
+            <option value="medium">Medium</option>
+            <option value="low">Low</option>
+            </select>
+            <select id="completed">
+                <option value="true">true</option>
+                <option value="false">false</option>
+                </select>
+            <br>
+            <br>
+            <button class="button" onclick="postTask()">Create a task!</button>   
+        <hr>
+    </div>
+    <div class="myList col-md-offset-1 col-md-11">
+        <h3>your dopa-menu</h3>
+        <br>
+        <button onclick="clickButton()">Bored?</button>
+        <br>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="todo.js"></script>
+
+</body>
+</html>
