@@ -38,8 +38,8 @@ db.on('error', console.error.bind(console, 'MongoDB connection error: '));
 
 
 
-//opening up our server to listen on listen on a specific ip address and port
-//is addresses are also knows as hostnames
+//opening up our server to listen or listen on a specific ip address and port
+
 app.listen(port, function(){
   console.log("the server is running at port " + port)
 });
@@ -62,6 +62,44 @@ app.post('/postTask', (request, response) => {
   return node;
   })
   });
+
+
+
+
+/* this is the DELETE function DOES NOT WORK */
+
+app.delete('/deleteTask', function(request, response){
+
+  Task.deleteOne(request.body).then(function(){
+    response.sendStatus(204);
+  }).catch(function(err){
+    response.sendStatus(404);
+  });
+})
+
+
+
+
+
+/* this is to update DOES NOT WORK  */
+
+app.put('/tasks/:id', async (request, response) => {
+  let updatedTask = new Task(request.body);
+  Task.findOne({_id: request.params.id}).exec((err, item) => {
+      if (err) return console.error(err);
+      item.name = updatedTask.name;
+      item.assignedTo = updatedTask.assignedTo;
+      item.priority = updatedTask.priority;
+      item.completed = updatedTask.completed;
+      try {
+          response.sendStatus(200);
+          item.save();
+      } catch {
+          response.sendStatus(500);
+      }
+  });
+});
+
 
 /*
 db.once('open', function(){

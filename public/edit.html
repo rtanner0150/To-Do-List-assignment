@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en-us">
 
 <head>
@@ -12,34 +12,61 @@
     <h1> make yourself happy </h1>
 <img src="boredCat.jpeg" alt="bored kitty">
 <br>
-<div>
-    <div class="createTask">
-        <hr>
-            <input id="taskName" type="text" placeholder="Task">
-            <input id="assignee" type="text" placeholder="Assignee">
-            <select id="taskPriority">
-            <option value="high">High</option>
-            <option value="medium">Medium</option>
-            <option value="low">Low</option>
-            </select>
-            <select id="completed">
-                <option value="true">true</option>
-                <option value="false">false</option>
-                </select>
-            <br>
-            <br>
-            <button class="btn" onclick="submitTask()">Create a task!</button>   
-        <hr>
-    </div>
-    <div class="myList">
-        <h3>your dopa-menu</h3>
-        <br>
-        <button class="btn" onclick="clickButton()">Bored?</button>
-        <br>
-        <br>
-    </div>
-    <div class="row" id="myListContainer"></div>
+<hr>
+
+<div class="updateTask">
+      <input id="taskName" type="text" placeholder="Task">
+      <input id="assignee" type="text" placeholder="Assignee">
+      <select id="taskPriority">
+      <option value="high">High</option>
+      <option value="medium">Medium</option>
+      <option value="low">Low</option>
+      </select>
+      <select id="completed">
+          <option value="true">true</option>
+          <option value="false">false</option>
+          </select>
+      <br>
+      <br>
+      <a href="index.html" class="btn">home page</a>
+      <button class="btn" onclick="updateTask()">confirm edit</button> 
+    <hr>
 </div>
+
+<!--
+  <div class="card" style="width: 18rem">
+         <div class="card-header">
+             <h6>
+                 priority
+                 <i class="fas fa-pencil-alt"></i>
+                 <i class="far fa-trash-alt"></i>
+             </h6>
+         </div>    
+         <div class="card-body">
+             <p>
+                 task name
+                     <br>
+                 assignee
+                     <br> 
+                 completion station
+             </p>
+         </div>
+   </div>
+  <br>
+-->
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>

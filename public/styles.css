@@ -6,3 +6,25 @@ body {
 #centerText {
   text-align: center;
 }
+
+.card {
+  background-color:#f8ebc5;
+  width: 30%;
+  margin-right: 15px;
+  margin-bottom: 15px;
+}
+
+.btn {
+  background-color: #f2f2f2;
+  color: black;
+  border: 2px solid black;
+  border-radius: 0%;
+}
+
+.editBtn {
+  color: black;
+}
+
+.deleteIcon{
+  cursor:pointer;
+}
