@@ -66,7 +66,7 @@ app.post('/postTask', (request, response) => {
 
 
 
-/* this is the DELETE function DOES NOT WORK */
+/* this is the DELETE function */
 
 app.delete('/deleteTask', function(request, response){
 
@@ -77,28 +77,35 @@ app.delete('/deleteTask', function(request, response){
   });
 })
 
-
-
-
-
 /* this is to update DOES NOT WORK  */
 
 app.put('/tasks/:id', async (request, response) => {
   let updatedTask = new Task(request.body);
-  Task.findOne({_id: request.params.id}).exec((err, item) => {
+  /* this might be an issue */
+  Task.findOneAndUpdate({_id: request.params.id}).exec((err, task) => {
       if (err) return console.error(err);
-      item.name = updatedTask.name;
-      item.assignedTo = updatedTask.assignedTo;
-      item.priority = updatedTask.priority;
-      item.completed = updatedTask.completed;
+      task.task = updatedTask.task;
+      task.assignedTo = updatedTask.assignedTo;
+      task.priority = updatedTask.priority;
+      task.completed = updatedTask.completed;
       try {
           response.sendStatus(200);
-          item.save();
+          task.save();
       } catch {
           response.sendStatus(500);
       }
   });
 });
+
+app.get('/tasks/:id', function(request, response){
+
+  Task.findOne({_id: request.params.id}).exec((err, task) => {
+    if (err) return console.error(err);
+    console.log(task);
+    response.send(task)
+  })
+})
+
 
 
 /*

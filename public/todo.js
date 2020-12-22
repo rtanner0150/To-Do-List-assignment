@@ -83,6 +83,7 @@ async function postTask(){
 function submitTask(){
     postTask()
     .then (function(){
+        alert("task created!");
         console.log("ya did it, babe")
     })
     .catch (function(){
@@ -122,18 +123,18 @@ async function deleteTaskRequest(taskId){
 /* this is the end of DELETE function */
 /* this is the start of PUT function or update! */
 
-async function updateTask(el){
+async function updateTask(taskId){
     let prioritySelect = document.getElementById('taskPriority');
     let completedSelect = document.getElementById('completed');
-    let t = {
-        name: document.getElementById('taskName').value,
-        assignedTo: document.getElementById('assignee').value,
+    let editor = {
+        task: document.getElementById('taskName').value,
+        assignee: document.getElementById('assignee').value,
         priority: prioritySelect.options[prioritySelect.selectedIndex].value,
         completed: completedSelect.options[completedSelect.selectedIndex].value
     }
     let requestOptions = {
         method: 'PUT',
-        body: JSON.stringify(t),
+        body: JSON.stringify(editor),
         headers: {'Content-Type': 'application/json'}
     }
     const response = await fetch('/tasks/' + taskId, requestOptions);
@@ -142,4 +143,18 @@ async function updateTask(el){
     }
     window.location.href = 'index.html';
     return true;
+}
+
+async function getSingleTask(id){
+    let requestOptions = {
+        method: 'GET',
+        headers: {'Content-Type': 'application/json'}
+    }
+
+    const response = await fetch('/tasks/' + id, requestOptions);
+    const body = await response.json();
+    if (response.status != 200){
+        throw Error(body.message);
+    }
+    return body;
 }
